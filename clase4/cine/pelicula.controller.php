@@ -19,7 +19,19 @@ class PeliculaController
     public function PeliculasPorDirector()
     {
         $oPeliculaModel = new PeliculaModel();
-        $retval = $oPeliculaModel->PeliculasPorDirector();
+        $ListaPeliculas = $oPeliculaModel->PeliculasPorDirector();
+        
+        $tpl = New TemplatePower("./templates/listadoPeliculasDirector.html");
+        $tpl->prepare();
+        $tpl->gotoBlock("_ROOT");
+        foreach ($ListaPeliculas as $Peli) {
+            $tpl->newBlock("listapeliculas");
+            $tpl->assign("NombrePelicula",$Peli["pe_nombre"]);
+            $tpl->assign("DirectorPelicula",$Peli["di_nombreArtistico"]);
+            
+        }
+        return($tpl->getOutputContent());
+        
         tabledrawhtml($retval);
     }
     
@@ -56,7 +68,6 @@ class PeliculaController
             $tpl->assign("DuracionPelicula",$Peli["pe_duracion"]);
             $tpl->assign("ActoresPelicula",$Peli["actores"]);
             
-            //$Peli->cosas locas;
         }
         return($tpl->getOutputContent());
     }

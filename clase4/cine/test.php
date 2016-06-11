@@ -3,8 +3,14 @@ include("inc.includes.php");
 $db = new MySQL($config["dbhost"],$config["dbuser"],$config["dbpass"],$config["db"]);
 
 
+/*$oPeliculaController = new PeliculaController();
+echo $oPeliculaController->ListarPeliculas();*/
+
+
+
 $oPeliculaController = new PeliculaController();
-echo $oPeliculaController->ListarPeliculas();
+echo $oPeliculaController->PeliculasPorDirector();
+
 
 /*
 $tpl =new TemplatePower("./templates/listadoPeliculas.html");

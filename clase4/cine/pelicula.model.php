@@ -27,7 +27,7 @@ class PeliculaModel
                                 inner join artista apd ON pd.id_artista = apd.id_artista
                                 GROUP BY pelicula.id_director"); */
         
-        $retval = $db->select("SELECT pelicula.id_director, apd.ar_nombre, pelicula.pe_nombre
+        $retval = $db->select("SELECT pelicula.id_director, pd.di_nombreArtistico, pelicula.pe_nombre
                                 FROM pelicula 
                                 INNER JOIN director pd ON pelicula.id_director= pd.id_director
                                 inner join artista apd ON pd.id_artista = apd.id_artista
