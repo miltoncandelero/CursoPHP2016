@@ -8,9 +8,12 @@ echo $oPeliculaController->ListarPeliculas();*/
 
 
 
-$oPeliculaController = new PeliculaController();
+/*$oPeliculaController = new PeliculaController();
 echo $oPeliculaController->PeliculasPorDirector();
+*/
 
+$oPeliculaController = new PeliculaController();
+echo $oPeliculaController -> PeliculasPorGenero();
 
 /*
 $tpl =new TemplatePower("./templates/listadoPeliculas.html");

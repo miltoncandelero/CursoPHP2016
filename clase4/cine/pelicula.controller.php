@@ -11,9 +11,22 @@ class PeliculaController
     
         function PeliculasPorGenero()
     {
-        $oPeliculaModel = new PeliculaModel();
-        $retval = $oPeliculaModel->PeliculasPorGenero();
-        tabledrawhtml($retval);
+         $oPeliculaModel = new PeliculaModel();
+        $ListaPeliculas = $oPeliculaModel->PeliculasPorGenero();
+        
+        //ge_nombre SUMA
+        
+        $tpl = New TemplatePower("./templates/contarPeliculasGenero.html");
+        $tpl->prepare();
+        $tpl->gotoBlock("_ROOT");
+        foreach ($ListaPeliculas as $Peli) {
+            $tpl->newBlock("listapeliculas");
+            $tpl->assign("GeneroPelicula",$Peli["ge_nombre"]);
+            $tpl->assign("CantidadPelicula",$Peli["SUMA"]);
+            
+        }
+        return $tpl->getOutputContent();
+        
     }
     
     public function PeliculasPorDirector()
@@ -31,8 +44,6 @@ class PeliculaController
             
         }
         return($tpl->getOutputContent());
-        
-        tabledrawhtml($retval);
     }
     
     
