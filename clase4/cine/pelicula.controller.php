@@ -2,7 +2,7 @@
 
 /**
  * Que lindo que es visual code. GG WP
- * Pelicula controller (si entendi bien) se encarga de llamar al model y mostrar por pantalla!!!.
+ * Pelicula controller (si entendi bien) se encarga de llamar al model y formatear lo que va a salir en pantalla.
  */
 class PeliculaController
 {
